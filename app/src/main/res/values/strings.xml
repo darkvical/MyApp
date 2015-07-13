@@ -3,4 +3,10 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <!--CORRESPONDE AL VALOR EN DURO PARA EL MENU-->
+    <string name="ic_menu_principal_first">Inicio</string>
+    <string name="ic_menu_principal_second">Buscar</string>
+    <string name="ic_menu_principal_third">Registrar</string>
+
 </resources>
