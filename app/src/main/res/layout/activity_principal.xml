@@ -10,21 +10,43 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/lytPrincipal">
+        android:id="@+id/lytPrincipal"
+        android:gravity="center_vertical|center_horizontal">
 
-        <EditText
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editMensaje"
-            android:layout_weight="1"
-            android:hint="Mensaje" />
+            android:gravity="end"
+            android:id="@+id/lytContenido"
+            android:baselineAligned="false">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Aceptar"
-            android:id="@+id/btnPAceptar"
-            android:layout_weight="1"
-            android:onClick="eventAceptar" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editUser"
+                android:editable="true"
+                android:gravity="center"
+                android:hint="Usuario"
+                android:width="200dp"
+                android:inputType="text" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editPassword"
+                android:width="200dp"
+                android:password="true"
+                android:hint="Password"
+                android:gravity="center" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:id="@+id/btnLogin"
+                android:onClick="login"
+                android:nestedScrollingEnabled="false" />
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
