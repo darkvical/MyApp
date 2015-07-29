@@ -1,4 +1,4 @@
-package vical.com.pe.myapp.ui;
+package vical.com.pe.myapp.ui.activity;
 
 import android.app.Activity;
 import android.content.Intent;

@@ -14,6 +14,8 @@ import vical.com.pe.myapp.R;
 import vical.com.pe.myapp.entity.User;
 import vical.com.pe.myapp.service.ISeguridad;
 import vical.com.pe.myapp.service.impl.SeguridadImpl;
+import vical.com.pe.myapp.ui.activity.BaseActivity;
+import vical.com.pe.myapp.ui.activity.LocalidadActivity;
 
 
 public class Principal extends BaseActivity {
@@ -38,7 +40,7 @@ public class Principal extends BaseActivity {
         if(StringUtils.isNotEmpty(usuario) && StringUtils.isNotEmpty(password)){
             User user = iSeguridad.obtenerUsuario(usuario, password, this);
             if(user != null){
-                inicioActivity(this, new LocalidadUI());
+                inicioActivity(this, new LocalidadActivity());
             }else{
                 Toast.makeText(this, "Usuario y/o contraseña incorrectos", Toast.LENGTH_SHORT).show();
             }

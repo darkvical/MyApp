@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.LocalidadUI"
+            android:name=".ui.activity.LocalidadActivity"
             android:label="@string/title_activity_localidades" >
         </activity>
     </application>

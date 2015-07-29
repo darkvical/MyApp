@@ -2,18 +2,46 @@ package com.example;
 
 import de.greenrobot.daogenerator.DaoGenerator;
 import de.greenrobot.daogenerator.Entity;
+import de.greenrobot.daogenerator.Property;
 import de.greenrobot.daogenerator.Schema;
 
 public class ConfigGreenDao {
+
+    private static Entity user;
+    private static Entity lista;
+    private static Entity valor;
+
     public static void main(String[] args) throws Exception{
-        Schema schema = new Schema(1, "vical.com.pe.myapp.entity");
+        Schema schema = new Schema(3, "vical.com.pe.myapp.entity");
         schema.setDefaultJavaPackageDao("vical.com.pe.myapp.dao");
         addUser(schema);
+        addLista(schema);
+        addValor(schema);
         new DaoGenerator().generateAll(schema,"D:\\Proyectos\\Android\\MyApp\\app\\src\\main\\java");
     }
 
+    private static void addValor(Schema schema) {
+        valor = schema.addEntity("Valor");
+        Property listaIdProperty = valor.addLongProperty("listaId").getProperty();
+        valor.addIdProperty().autoincrement();
+        valor.addStringProperty("Codigo").notNull();
+        valor.addStringProperty("Nomnbre");
+        valor.addStringProperty("Descripcion");
+        valor.addStringProperty("Valor");
+        valor.addToOne(lista, listaIdProperty);
+    }
+
+    private static void addLista(Schema schema) {
+        lista = schema.addEntity("Lista");
+        lista.addIdProperty().autoincrement();
+        lista.addStringProperty("Codigo").notNull();
+        lista.addStringProperty("Nomnbre");
+        lista.addStringProperty("Descripcion");
+        lista.addStringProperty("Valor");
+    }
+
     private static void addUser(Schema schema) {
-        Entity user = schema.addEntity("User");
+        user = schema.addEntity("User");
         user.addIdProperty().autoincrement();
         user.addStringProperty("Nombre");
         user.addStringProperty("Paterno");
