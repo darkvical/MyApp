@@ -4,33 +4,29 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 
 import vical.com.pe.myapp.dao.ListaDao;
-import vical.com.pe.myapp.dao.UserDao;
 import vical.com.pe.myapp.dao.ValorDao;
 
 /**
- * Created by Vical on 28/07/2015.
+ * Created by Vical on 29/07/2015.
  */
-public class Load {
-
+public class LoadLista {
     public static SQLiteDatabase db;
 
-    public static void generateLoad (SQLiteDatabase db){
-        Load.db = db;
-        ContentValues user = new ContentValues();
-        user.put(UserDao.Properties.Nombre.columnName, "Victor");
-        user.put(UserDao.Properties.Paterno.columnName, "Rodriguez");
-        user.put(UserDao.Properties.Materno.columnName, "Lozano");
-        user.put(UserDao.Properties.Usuario.columnName, "vical");
-        user.put(UserDao.Properties.Edad.columnName, 24);
-        user.put(UserDao.Properties.Password.columnName, "123456");
-        db.insert(UserDao.TABLENAME, "", user);
-
+    public static void generateLista(SQLiteDatabase db){
         ContentValues lista = new ContentValues();
-        lista.put(ListaDao.Properties.Id.columnName, 1L);
+//        lista.put(ListaDao.Properties.Id.columnName, 1L);
         lista.put(ListaDao.Properties.Nomnbre.columnName, "Estados");
         lista.put(ListaDao.Properties.Codigo.columnName, "EST");
         lista.put(ListaDao.Properties.Descripcion.columnName, "Corresponde a los estado");
         lista.put(ListaDao.Properties.Valor.columnName, "EST");
+        db.insert(ListaDao.TABLENAME, "", lista);
+
+        lista = new ContentValues();
+//        lista.put(ListaDao.Properties.Id.columnName, 1L);
+        lista.put(ListaDao.Properties.Nomnbre.columnName, "Documento");
+        lista.put(ListaDao.Properties.Codigo.columnName, "DOI");
+        lista.put(ListaDao.Properties.Descripcion.columnName, "Corresponde a los documentos");
+        lista.put(ListaDao.Properties.Valor.columnName, "DOI");
         db.insert(ListaDao.TABLENAME, "", lista);
 
         ContentValues activo = new ContentValues();

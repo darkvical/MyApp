@@ -10,9 +10,14 @@ import android.widget.Toast;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.List;
+
 import vical.com.pe.myapp.R;
+import vical.com.pe.myapp.entity.Lista;
 import vical.com.pe.myapp.entity.User;
+import vical.com.pe.myapp.service.IConfiguracion;
 import vical.com.pe.myapp.service.ISeguridad;
+import vical.com.pe.myapp.service.impl.ConfiguracionImpl;
 import vical.com.pe.myapp.service.impl.SeguridadImpl;
 import vical.com.pe.myapp.ui.activity.BaseActivity;
 import vical.com.pe.myapp.ui.activity.LocalidadActivity;

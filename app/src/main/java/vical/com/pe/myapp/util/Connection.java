@@ -18,8 +18,8 @@ public class Connection {
 
     }
 
-    public DaoSession createConnection(Activity activity){
-        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(activity, "user-db", null);
+    public DaoSession createConnection(Activity activity, String nameTable){
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(activity, nameTable+"-db", null);
         db = helper.getWritableDatabase();
         daoMaster = new DaoMaster(db);
         daoSession = daoMaster.newSession();

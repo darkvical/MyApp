@@ -20,6 +20,10 @@
             android:name=".ui.activity.LocalidadActivity"
             android:label="@string/title_activity_localidades" >
         </activity>
+        <activity
+            android:name=".ui.activity.ValoresActivity"
+            android:label="@string/title_activity_valores" >
+        </activity>
     </application>
 
 </manifest>

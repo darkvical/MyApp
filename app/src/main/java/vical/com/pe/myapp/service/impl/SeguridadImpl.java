@@ -20,7 +20,7 @@ public class SeguridadImpl implements ISeguridad {
     @Override
     public List<User> listarUsuario(Activity activity) {
         Connection conn = new Connection();
-        DaoSession daoSession = conn.createConnection(activity);
+        DaoSession daoSession = conn.createConnection(activity, UserDao.TABLENAME);
         userDao = daoSession.getUserDao();
         QueryBuilder query = userDao.queryBuilder();
         List<User> users = query.list();
@@ -30,7 +30,7 @@ public class SeguridadImpl implements ISeguridad {
     @Override
     public User obtenerUsuario(String usuario, String password, Activity activity) {
         Connection conn = new Connection();
-        DaoSession daoSession = conn.createConnection(activity);
+        DaoSession daoSession = conn.createConnection(activity, UserDao.TABLENAME);
         userDao = daoSession.getUserDao();
         QueryBuilder query = userDao.queryBuilder();
         query.and(UserDao.Properties.Nombre.eq(usuario), UserDao.Properties.Password.eq(password));
