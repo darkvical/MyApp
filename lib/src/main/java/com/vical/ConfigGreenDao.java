@@ -1,4 +1,4 @@
-package com.example;
+package com.vical;
 
 import de.greenrobot.daogenerator.DaoGenerator;
 import de.greenrobot.daogenerator.Entity;
