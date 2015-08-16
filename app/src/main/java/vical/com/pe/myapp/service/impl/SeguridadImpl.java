@@ -33,7 +33,7 @@ public class SeguridadImpl implements ISeguridad {
         DaoSession daoSession = conn.createConnection(activity, UserDao.TABLENAME);
         userDao = daoSession.getUserDao();
         QueryBuilder query = userDao.queryBuilder();
-        query.and(UserDao.Properties.Nombre.eq(usuario), UserDao.Properties.Password.eq(password));
+        query.where(query.and(UserDao.Properties.Usuario.eq(usuario), UserDao.Properties.Password.eq(password)));
         List<User> users = query.list();
         if(users.isEmpty()){
             return null;

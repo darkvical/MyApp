@@ -20,7 +20,7 @@ public class LocalidadActivity extends ListActivity {
 
     private ListView listView;
     private ListaAdapter listaAdapter;
-    private IConfiguracion iConfiguracion = new ConfiguracionImpl();
+    private IConfiguracion iConfiguracion = new ConfiguracionImpl(this);
     private List<Lista> listas;
     public static final String CODIGO_LISTA = "CODIGO_LISTA";
 
@@ -29,14 +29,14 @@ public class LocalidadActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_localidades);
         listView = getListView();
-        listas = iConfiguracion.listarLista(this);
+        listas = iConfiguracion.listarLista();
         listaAdapter = new ListaAdapter(this, R.layout.layout_lista, listas);
         setListAdapter(listaAdapter);
     }
 
     @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
+    protected void onListItemClick(ListView list, View view, int position, long id) {
+        super.onListItemClick(list, view, position, id);
         Lista listaSeleccion = listas.get(position);
         Intent intent = new Intent(this, ValoresActivity.class);
         intent.putExtra(CODIGO_LISTA, listaSeleccion.getCodigo());

@@ -1,6 +1,7 @@
 package vical.com.pe.myapp.util;
 
 import android.app.Activity;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import vical.com.pe.myapp.dao.DaoMaster;
@@ -18,8 +19,8 @@ public class Connection {
 
     }
 
-    public DaoSession createConnection(Activity activity, String nameTable){
-        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(activity, nameTable+"-db", null);
+    public DaoSession createConnection(Context context, String nameTable){
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, nameTable+"-db", null);
         db = helper.getWritableDatabase();
         daoMaster = new DaoMaster(db);
         daoSession = daoMaster.newSession();

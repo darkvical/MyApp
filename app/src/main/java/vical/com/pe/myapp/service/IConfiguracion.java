@@ -12,7 +12,9 @@ import vical.com.pe.myapp.entity.Valor;
  */
 public interface IConfiguracion {
 
-    List<Lista> listarLista(Activity activity);
+    List<Lista> listarLista();
 
-    List<Valor> listarValores(Activity activity, String codigoLista);
+    Lista obtenerLista(String codigoLista);
+
+    List<Valor> listarValores(String codigoLista);
 }

@@ -17,14 +17,14 @@ public class ValoresActivity extends ListActivity {
 
     private List<Valor> valores;
     private ValorAdapter valorAdapter;
-    private IConfiguracion iConfiguracion = new ConfiguracionImpl();
+    private IConfiguracion iConfiguracion = new ConfiguracionImpl(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_valores);
         Intent intent = getIntent();
-        valores = iConfiguracion.listarValores(this, intent.getStringExtra(LocalidadActivity.CODIGO_LISTA));
+        valores = iConfiguracion.listarValores(intent.getStringExtra(LocalidadActivity.CODIGO_LISTA));
         valorAdapter = new ValorAdapter(this, R.layout.layout_lista, valores);
         setListAdapter(valorAdapter);
     }
